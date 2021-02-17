@@ -10,15 +10,16 @@ namespace Assignment5.Models
 {
     public class SeedData
     {
+        //Data taken from the table that we were given
         public static void EnsurePopulated (IApplicationBuilder application)
         {
             BookStoreDBContext context = application.ApplicationServices.CreateScope().ServiceProvider.GetRequiredService<BookStoreDBContext>();
-
+            //Checks to see if a migration already exists
             if(context.Database.GetPendingMigrations().Any())
             {
                 context.Database.Migrate();
             }
-
+            //If one does not we input this data into the table
             if(!context.Books.Any())
             {
                 context.Books.AddRange(

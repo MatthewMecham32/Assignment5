@@ -9,7 +9,7 @@ namespace Assignment5.Models
     {
         private BookStoreDBContext _context;
 
-        //Constructor
+        //Constructor for repository
         public EFBookStoreRepository(BookStoreDBContext context)
         {
             _context = context;

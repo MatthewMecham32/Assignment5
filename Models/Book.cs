@@ -11,11 +11,13 @@ namespace Assignment5.Models
         [Key]
         public int BookID { get; set; }
         [Required]
+        //accepts ###-#########
         [RegularExpression("([0-9]{3})+-+([0 - 9]{10})", ErrorMessage="Incorrect ISBN format")]
         public int ISBN { get; set; }
         [Required]
         public string Title { get; set; }
         [Required]
+        //Split out the name
         public string AuthorFirstName { get; set; }
         public string AuthorMiddleName { get; set; }
         [Required]
@@ -23,6 +25,7 @@ namespace Assignment5.Models
         [Required]
         public string Publisher { get; set; }
         [Required]
+        //split category and classfication
         public string Category { get; set; }
         [Required]
         public string Classification { get; set; }
