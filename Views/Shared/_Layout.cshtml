@@ -8,12 +8,21 @@
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
-
-    <div >
-
+<div class="bg-primary text-white p-3">
+    <span class="navbar-brand ml-4">Book Store</span>
+</div>
+    <div class="row m-1 p-2" >
+        <div id="MyCol" class="col-3">
+            <h2>Matt's Bookstore</h2>
+        </div>
+        <div class="col-9">
             @RenderBody()
+        </div>
 
     </div>
+
+
+
 
 </body>
 </html>
