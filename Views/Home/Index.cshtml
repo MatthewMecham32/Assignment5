@@ -9,35 +9,16 @@
     <h1>Assignment #6</h1>
 </header>
 
+@foreach (var x in Model.Books)
+    {
+        <partial name="BookSummary" model="x"/>
+    }
 
 
 
 
-
-
-            @foreach (var x in Model.Books)
-             {
-                <div class="card card-header m-lg-5 p-5">
-                    <h5>Title: @x.Title
-                        <span class="badge bage-pill badge-danger" style="float:initial">
-                            <h5>$@x.Price</h5>
-                        </span>
-                    </h5>
-                    <span>
-                        <p class="d-inline-block text-lg-center">Author: @x.AuthorFirstName</p>
-                        <p class="d-inline-block">@x.AuthorLastName</p>
-                        <p class="font-weight-lighter">Category: @x.Category</p>
-                    </span>
-                        
-                </div>
-                        
-                    
-                
-                    
-             }
-
-
-
-
-<div page-model="@Model.PagingInfo" page-action="Index" page-classes-enable="true" page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-primary" class="btn-group pull-right m-1"></div>
+<div page-model="@Model.PagingInfo" page-action="Index" 
+     page-classes-enable="true" page-class="btn" page-class-normal="btn-outline-dark" 
+     page-class-selected="btn-primary" page-url-category=@Model.CurrentCategory
+     class="btn-group pull-right m-1"></div>
 
