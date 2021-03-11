@@ -21,22 +21,22 @@ namespace Assignment5.Controllers
             _repository = repository;
         }
 
-        public IActionResult Index(string category, int page = 1)
+        public IActionResult Index(string category, int pageNum = 1)
         {
             if (ModelState.IsValid)
             {//Bring in the books to be displayed
                 return View(new BookListViewModel
                 {//Selects all books or only books in a category
                     Books = _repository.Books
-                    .Where(p => category == null || p.Category == category)
-                    .OrderBy(p => p.BookID)
-                    .Skip((page - 1) * PageSize)
+                    .Where(b => category == null || b.Category == category)
+                    .OrderBy(b => b.BookID)
+                    .Skip((pageNum - 1) * PageSize)
                     .Take(PageSize),
 
                     PagingInfo = new PagingInfo
                     {
                         //Dynamicaly display the number of webpages needed
-                        CurrentPage = page,
+                        CurrentPage = pageNum,
                         ItemsPerPage = PageSize,
                         TotalNumItems = category == null ? _repository.Books.Count() :
                         _repository.Books.Where(x => x.Category == category).Count()
